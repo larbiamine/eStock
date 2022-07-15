@@ -1,0 +1,137 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block deactive %}  {% endblock %}
+{% block productactive %} active {% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="section">
+       <div class="col-md-8">
+            <div class="card">
+                <div class="card-header ">
+                 
+                        <h3 class="font-weight-normal ml-1 mx-auto" >  Modifier un produit  </h3><br> 
+                   
+
+                    
+                </div>
+                <div class="card-body mr-3 ">
+                    <form  method="POST"> {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label>Titre </label>
+                                    <input type="text" name="title" class="form-control" value="{{ obj.Title }}"  >
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label>Reference</label>
+                                    <input type="text" name="reference" class="form-control" value="{{ obj.Reference }}" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 pr-1 ">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" name="description" class="form-control" value="{{ obj.Description }}" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 pr-1">
+                                <div class="form-group">
+                                    <label>Prix d'achat</label>
+                                    <input type="number" name="purchaseprice" class="form-control" value="{{ obj.PurchasePrice }}" >
+                                </div>
+                            </div>
+                            <div class="col-md-4 pr-1">
+                                <div class="form-group">
+                                    <label>Prix de vente</label>
+                                    <input type="number" name="salesprice" class="form-control" value="{{ obj.SalesPrice }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4 pr-1">
+                                <div class="form-group">
+                                    <label>quantité</label>
+                                    <input type="number" name="quantity" class="form-control"  value="{{ obj.Quantity }}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label>Fabricant</label>
+                                    
+                                    <input type="text" name="manufacturer" class="form-control" value="{{ obj.Manufacturer }}" >
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label>Categorie</label>
+                                    
+                                    <input type="text" name="category" class="form-control" value="{{ obj.Category }}">
+                                    
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-8 pr-1">
+                                <div class="form-group">
+                                    <label>Fournisseurs <br></label>
+                                    <div class="card">
+                                        <div class="card-body ">
+                                            {% for s in list_suppliers%}
+
+                                            {% if s.Name in list_suppliers_obj %}
+                                            <input checked type="checkbox" id="suppliers" name="suppliers" value="{{s.Name}}">
+                                            <label  for="suppliers"> {{s.Name}} </label><br>
+                                            {% endif %}
+                                            {% if s.Name not in list_suppliers_obj %}
+                                            <input type="checkbox" id="suppliers" name="suppliers" value="{{s.Name}}">
+                                            <label  for="suppliers"> {{s.Name}} </label><br>
+                                            {% endif %}
+
+                                            {% endfor %}
+                                                                                        <a  class="btn  pull-right btn-sm" href="/supplier_createPOPUP" onclick="window.open('/supplier_createPOPUP', 
+                                                                                                                    'newwindow', 
+                                                                                                                    'width=430,height=740'); 
+                                                                                                        return false;" >
+                                                                                                        Ajouter Fournisseur
+                                                                                        </a>
+                                            
+                                                                                  
+
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            
+
+                        </div>           
+                        
+              
+                                                 
+                                    
+                        {% for message in messages %}              
+                        <h6 class="text-danger small">{{message}}</h6>
+                        {% endfor %} 
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Modifier Produit </button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}    

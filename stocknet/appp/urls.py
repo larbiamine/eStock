@@ -1,0 +1,47 @@
+from django.urls import path,include
+from . import views
+
+urlpatterns=[
+    path('',views.home,name='home'),
+    path('contact/',views.contact,name='contact'),
+    path('about/',views.about,name='about'),
+    path('services/',views.services,name='services'),
+    path('learnmore/',views.learnmore,name='learnmore'),
+    path('dashboard/',views.dashboard,name='dashboard'),
+    path('account/',views.account,name='account'),
+    path('product_create/',views.product_create,name='product_create'),
+    path('product/<int:id>/delete/',views.product_delete,name='product_delete'),
+    path('client/<int:id>/delete/',views.client_delete,name='client_delete'),
+    path('client/<int:id>/edit/',views.client_edit,name='client_edit'),
+    path('supplier/<int:id>/delete/',views.supplier_delete,name='supplier_delete'),
+    path('supplier/<int:id>/edit/',views.supplier_edit,name='supplier_edit'),
+    path('product/<int:id>/edit/',views.product_edit,name='product_edit'),
+    path('product_list/',views.product_list,name='product_list'),
+    path('negproduct_list/',views.negproduct_list,name='negproduct_list'),
+    path('reptureproduct_list/',views.reptureproduct_list,name='reptureproduct_list'),
+    path('client_create/',views.client_create,name='client_create'),
+    path('client_list/',views.client_list,name='client_list'),
+    path('supplier_createPOPUP/',views.supplier_createPOPUP,name='supplier_createPOPUP'),
+    path('supplier_close/',views.supplier_close,name='supplier_close'),
+
+    path('supplier_create/',views.supplier_create,name='supplier_create'),
+    path('supplier_create/?_to_field=id&_popup=1',views.supplier_create,name='supplier_create'),
+    path('supplier_list/',views.supplier_list,name='supplier_list'),
+    path('order_client_list/',views.order_client_list,name='order_client_list'),
+    path('order_client_create/',views.order_client_create,name='order_client_create'),
+    path('order_supplier_create/',views.order_supplier_create,name='order_supplier_create'),
+    path('order_supplier_list/',views.order_supplier_list,name='order_supplier_list'),
+    path('PendingOrders_list/',views.PendingOrders_list,name='PendingOrders_list'),
+    path('ordersupplier/<int:id>/edit/',views.order_supplier_edit,name='order_supplier_edit'),
+    path('orderclient/<int:id>/edit/',views.order_client_edit,name='order_client_edit'),
+    path('orderclient/<int:id>/delete/',views.order_client_delete,name='order_client_delete'),
+    path('orderclient/<int:id>/details/',views.order_client_details,name='order_client_details'),
+    path('ordersupplier/<int:id>/details/',views.order_supplier_details,name='order_supplier_details'),
+    path('orderclient/<int:id>/deliver/',views.order_client_deliver,name='order_client_deliver'),
+    path('ordersupplier/<int:id>/deliver/',views.order_supplier_deliver,name='order_supplier_deliver'),
+    path('ordersupplier/<int:id>/delete/',views.order_supplier_delete,name='order_supplier_delete'),
+    path('ordersupplier/<int:id>/delete/',views.order_supplier_delete,name='order_supplier_delete'),
+    path('order_client_deliver_confirm/<int:id>',views.order_client_deliver_confirm,name='order_client_deliver_confirm'),
+    
+    
+]

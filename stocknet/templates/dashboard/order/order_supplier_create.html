@@ -1,0 +1,58 @@
+
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block activeorder %} active {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container-fluid">
+    <div class="section">
+              <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="font-weight-normal ml-1 mx-auto" >  Ajouter une commande Fournisseur  </h3><br> 
+                </div>
+                <div class="card-body mr-3 ">
+                    <form  method="POST"> {% csrf_token %}
+                        {{form|crispy}}
+                        <hr>
+
+                        {{ formset.management_form  }}
+                        {% for f in formset %}
+                        <div class="row">
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    
+                                    {{f.Product|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    
+                                    {{f.Quantity|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+   
+                            
+                            <hr>
+                        {% endfor %} 
+  
+                        
+                        {% for message in messages %}              
+                        <h6 class="text-danger small">{{message}}</h6>
+                        {% endfor %} 
+
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Ajouter Commande </button>
+                        <div class="clearfix"></div>
+                    </form>
+                    <form  method="POST"> {% csrf_token %}
+                        <button type="submit" id="add" name="add" class="btn  pull-left">Ajouter Produit </button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+
+</div>
+
+
+{% endblock %}    

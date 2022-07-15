@@ -1,0 +1,140 @@
+
+{% extends 'dashboard/dashboard.html' %}
+{% load i18n %}
+
+{% block deactive %}  {% endblock %}
+{% block activeorder %} active {% endblock %}
+
+
+{% block content %}
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('selectedlist');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+<div class="container-fluid">
+                    <div class="section">
+
+                        <div class="table-responsive table-full-width">
+                            {% for message in messages %}  
+                                {% if message.level == 30 %}
+                                    <div class="alert alert-warning col-md-2 " role="alert">
+                                        {{message}}      
+                                    </div>            
+                                {% else %}
+                                    <div class="alert alert-success col-md-2 " role="alert">
+                                        {{message}}
+                                    </div>  
+                                {% endif %}
+
+                            {% endfor %} 
+                            <div class="row">
+                                <div class="col-md-8" >
+                                    <h2 class="font-weight-normal" >Liste Des commandes Fournisseur</h2>
+
+                                </div>
+                                <div class="col-md-4" >
+                                    <a class="btn  btn-bg mt-4" href="/order_supplier_create">
+                                        Ajouter commande Fournisseur
+                                    </a>
+                                </div>
+                            </div> 
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th><input type="checkbox" onClick="toggle(this)" /><br/></th>
+                                    <th>Fournisseur</th>
+                                    <th>Total</th>
+                                    <th>Date</th>
+                                    <th>Etat</th>
+                                    <th>Details</th>
+                                    <th>Livrer</th>
+                                    <th>Supprimer</th>
+                                    <th>Modifier</th>
+                                    
+                                </thead>
+                                <tbody>
+                                <form  method="POST"> {% csrf_token %}
+                                {% for entry in list_order_supplier %}
+                                    <tr>
+                                        <td>                                         
+                                            <input type="checkbox" id="selectedlist" name="selectedlist" value="{{entry.id}}">
+                                            <label  for="selectedlist">  </label><br>                                             
+                                        </td>
+                                        
+                                        
+                                        <td>{{ entry.Supplier }}</td>
+                                        
+                                        
+                                        <td  >{{entry.Total }}</td>
+                                        <td> {% language 'fr' %} 
+                                                {{ entry.Date }}
+                                              {% endlanguage %}  
+                                        </td>
+                                        <td>{{ entry.Status }}</td>
+                                        <td><a class=" text-info btn btn-info"  href="/ordersupplier/{{ entry.id }}/details">  Details</a></td>
+                                        <td>
+                                            {% if entry.Status == 'en attente'%}
+                                            <a class=" text-success btn btn-success"  href="/ordersupplier/{{ entry.id }}/deliver">  Livrer</a>
+                                            {% endif %}
+                                        </td>
+                                        <td><a class=" text-danger btn btn-danger"  href="/ordersupplier/{{ entry.id }}/delete">  Supprimer</a></td>
+                                        <td><a class=" text-warning btn btn-warning "  href="/ordersupplier/{{ entry.id }}/edit">  Modifier</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                                <div class="container pull-left">
+                                <div class="row">
+                                <div class="col-md-1 mt-4">
+                                    <button type="submit " class=" btn btn-danger  "><i class="fa-lg fa fa-trash"></i></button>       
+                                </div>
+                                </form>
+                                <form method="GET" action="." >
+                                            <div class="col-sm">  
+                                                <label>De</label>
+                                                <input type="date" class="form-control" name="de" id="dateFrom" value="2020-01-01" />
+                                            </div>
+
+                                            <div class="col-sm">                                    
+                                                <label>Vers</label>
+                                                <input type="date" class="form-control" name="vers" id="dateTo" value="2020-12-12"/>                                                                            
+                                            </div>
+                                            <div class="col-sm">                                    
+                                                <label>Fournisseur</label>
+                                                <select class="custom-select" id="type" name="supplier">
+                                                    <option value="-------">-------</option>
+                                                    {% for c in lssupplier %}
+                                                        <option value="{{c.id}}">{{c}}</option> 
+                                                    {% endfor %}    
+                                                </select>                                              
+                                            </div>
+                                            <div class="col-sm">                                    
+                                                <label>Etat</label>
+                                                <select class="custom-select" id="type" name="status">
+                                                    <option value="-------">-------</option>
+                                                    <option value="en attente">en attente</option>
+                                                    <option value="livré">livré</option>
+                                      
+                                                </select>                                              
+                                            </div>
+
+                                            <div class="col-md-3 mt-4">
+                                                    <button class="btn btn-primary" type="submit" id="getJsonSrc"><i class="fa fa-search"></i></button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>  
+                                <br> 
+                                <br>  
+                                </form>     
+                                </tbody>
+                            </table>
+                
+                        </div>
+
+                    </div>
+                </div>
+            {% endblock %}    

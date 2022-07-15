@@ -1,0 +1,78 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block deactive %}  {% endblock %}
+{% block productactive %} active {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="section">
+        <div class="table-responsive table-full-width">
+
+            {% for message in messages %}  
+            <div class="alert alert-success col-md-2 " role="alert">
+            {{message}}
+            </div>            
+            
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-10" >
+                    <h2 class="font-weight-normal" >Stock Négatif</h2>
+
+                </div>
+                <div class="col-md-2" >
+                    <a class="btn  btn-bg mt-4" href="/product_create">
+                        Ajouter Produit
+                    </a>
+                </div>
+            </div>
+            
+
+
+
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <th>Titre</th>
+                    <th>Prix d'achat </th>
+                    <th>Prix de vente</th>
+                    <th>Reference</th>
+                    <th>Fabricant</th>
+                    <th>Fournisseurs </th>
+                    <th>Categorie</th>
+                    <th>Quantité</th>
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                </thead>
+                <tbody>
+                
+                 
+                {% for entry in list_products %}
+                    {% if entry.Quantity < 0 %}
+                    <tr>
+                        <td>{{ entry.Title }} {{id}}  </td>
+                        <td>{{ entry.PurchasePrice }}</td>
+                        <td>{{ entry.SalesPrice }}</td>
+                        <td>{{ entry.Reference }}</td>
+                        <td>{{ entry.Manufacturer }}</td>
+                        <td>
+                            {% for s in entry.Suppliers.all %}    
+                                {{ s.Name }}
+                            {% endfor %}
+                        </td>
+                        <td>{{ entry.Category }}</td>
+                        
+                            <td class=" text-danger " > {{ entry.Quantity }}</td>
+                        <td><a class=" text-danger btn btn-danger"  href="/product/{{ entry.id }}/delete">  Supprimer</a></td>
+                        <td><a class=" text-warning btn btn-warning  "  href="/product/{{ entry.id }}/edit">  Modifier</a></td>
+
+                        
+
+                    </tr>
+                    {% endif %}
+                {% endfor %} 
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}    

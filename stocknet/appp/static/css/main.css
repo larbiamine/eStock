@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700,800&display=swap');
+body {
+    margin: 0;
+    background: #292929;
+    font-family: 'Montserrat',sans-serif;
+    //font-family: sans-serif;
+}
+.container-head{
+    width: 100%;
+    text-align: center;
+}
+a { 
+    color:white;
+    text-decoration: none;
+}
+a:visited { 
+    text-decoration: none; 
+    color:white; 
+}
+a:hover { 
+    text-decoration: none; 
+    color:white; 
+}
+
+p {
+    font-size: .9em;
+    line-height: 1.6em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container-head {
+    text-align: center;
+    padding-left: .9em;
+}
+
+.orange-container{
+    margin-top: -2em;
+    text-align: center;
+    width: 100%;
+    background: #EE8572;
+    padding: 4em 0 5em 7em;
+    margin-bottom: 5em;
+    transform: skewY(3deg);
+}
+.orange-container ul {
+    transform: skewY(-3deg);
+}
+.logo {
+     width: 100px;
+     padding-top: 10px;
+ }
+.logofooter {
+     width: 100px;
+     padding-top: 10px;
+     margin-bottom: 12px;
+ }
+
+.hide-mobile{
+    display: none;
+}
+.adress{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.footer-links{
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+ header {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1.7em;
+}
+
+.menu {
+    width: 25px;
+    margin-top: 75%;
+    margin-right: 25%;
+}
+
+.wallpaper{
+    width: 130%;
+    padding-left: 0;
+    padding-top: 12px;
+}
+.txtimage{
+    position: relative;
+}
+.title{
+
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+    color: black;
+    padding: 20% 20% 20% 20%;
+    display: inline-block;
+    text-align: center;
+}
+.aplusbttn{
+    padding-top: 10px;
+    padding-bottom: 3px;
+    background: #EE8572;
+    height: 30px;
+    width: 170px;
+    margin-top: 1.2em;
+    border-radius: 45px;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+}
+
+.aplusbttn:hover{
+    background: rgb(228, 100, 77);
+    color :white;
+}
+.headerconnexion:hover{
+    background: rgb(228, 100, 77);
+    color :white;
+}
+.headerbttn:hover{
+    background:#EE8572;
+    color :rgb(255, 255, 255);
+}
+
+.pc-icon-container{
+    background: white;
+    width: 15em;
+    margin-bottom: 5em;
+    border-radius: 30px;
+    height: 22em;
+    border: 2px solid black;
+}
+.report-icon-container{
+    border: 2px solid black;
+    background: white;
+    width: 15em;
+    margin-bottom: 5em;
+    border-radius: 30px;
+    height: 22em;
+}
+.caution-icon-container{
+    border: 2px solid black;
+    padding-top: 3em;
+    background: white;
+    width: 15em;
+    margin-bottom: 5em;
+    border-radius: 30px;
+    height: 20em;
+}
+
+footer{
+    text-align: center ;
+    color: lavender;
+    
+}
+
+.orange-container h2{
+    transform: skewY(-3deg);
+    color: white;
+    text-align: center;
+    margin-left: -220px;
+}
+.ctabttn{
+    padding-top: 10px;
+    padding-bottom: 3px;
+    background: #3b3b3b;
+    height: 30px;
+    width: 150px;
+    /margin-left: 18em;
+    margin-top: 3em;
+    border-radius: 45px;
+    text-align: center;
+    font-weight: 700;
+    transform: skewY(-3deg);
+    margin-left: 10%;
+    margin-left: -220px;
+    display: inline-block
+    
+}
+.ctabttn:hover{
+    background-color: #292929;
+}
+.ccbutton{
+    background: #3b3b3b;
+
+    border-radius: 45px;
+    font-weight: 700;
+    text-align: center;
+    transform: skewY(-3deg);
+    padding-top: 14px;
+    padding-bottom: 3px;
+    height: 40px;
+    width: 200px;
+    border-radius: 45px;
+    display: inline-block;
+    font-size: 120%;
+    margin-left: -11em;
+    margin-top: 2em;
+}
+.ccbutton:hover{
+    background-color: #292929;
+}
+
+.pc-icon{
+    margin-top: 20px;
+    margin-bottom: -10px;
+    width: 32%;
+}
+
+.caution-icon{
+    margin-top: -18px;
+    margin-bottom: 4px;
+    width: 28%;
+}
+.report-icon{
+    margin-top: 10px;
+    margin-bottom: -20px;
+    width: 55%;
+}
+h1{
+    font-size: 140%;
+}
+
+.pargcontainer{
+    margin-top: 25px;
+    font-size: 83%;
+    line-height: 1.2em;
+}
+.cautiontext{
+    margin-top: 27px;
+    font-size: 83%;
+    line-height: 1.2em;
+}
+nav ul{
+    position: fixed;
+    width: 60%;
+    top: 0;
+    right: 0;
+    text-align: left;
+    background: rgba(36, 41, 44);
+    height: 100%;
+    z-index: 7;
+    padding-top 3em;
+
+}
+nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 1em 2em;
+    background-color: rgb(52, 59, 63);
+    
+}
+nav ul li a:hover {
+    color: white;
+    background-color: rgb(82, 95, 102);
+}
+.exit-btn{
+    margin-top: 1.3em;
+    margin-bottom: 0.85em;
+    text-align: right;
+    padding: 0 1.4em;
+    
+}
+.exit-btn img{
+    width: 15px;
+    cursor: pointer;
+}
+.orange-container ul{
+    display: inline-block;
+    text-align: center;
+    margin-left: -220px;
+    
+}
+
+@media only screen and (min-width: 700px){
+    .headerbttn{
+        padding-top: 10px;
+        padding-bottom: 3px;
+        background: #3b3b3b;
+        height: 30px;
+        width: 100px;
+        margin-top: 1.2em;
+        border-radius: 45px;
+        font-weight: 700;
+        display: inline-block;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .headerconnexion{
+        padding-top: 10px;
+        padding-bottom: 3px;
+        background: #EE8572;
+        height: 28px;
+        width: 100px;
+        margin-top: 1.2em;
+        border-radius: 45px;
+        font-weight: 700;
+        display: inline-block;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .wallpaper{
+        width: 100%;
+        height: 800px;
+        object-fit: cover;
+      
+    }
+    header {
+        height: 90px;
+        margin-top: -12.5px;
+    }
+    footer{
+        text-align: left ;
+        margin-left: 6em;
+        color: lavender;
+        margin-top: 6em;
+        
+    }
+    .logofooter {
+        width: 120px;
+        padding-top: 10px;
+        margin-bottom: 40px;
+    }
+    .footer-links{
+        font-weight: 400;
+        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-left: 80em;
+        display: flex;
+        font-weight: 400;      
+    }
+    .footer-links li {
+        margin-left: 3em;
+        margin-top: -3em;
+        
+    }
+    .title h1{
+
+        font-size: 200%;
+        margin-top: -3.5em;
+    }
+    .aplusbttn{
+        padding-top: 14px;
+        padding-bottom: 3px;
+        background: #EE8572;
+        height: 40px;
+        width: 200px;
+        margin-top: 1em;
+        border-radius: 45px;
+        font-weight: 700;
+        display: inline-block;
+        text-align: center;
+        font-size: 120%;
+        color : white;
+    }
+    .orange-container{
+        margin-top: -5em;
+        transform: skewY(0deg);
+        padding-bottom: 15em;
+    }
+    .orange-container ul{
+        display: flex;
+        margin-left: 13%;
+        transform: skewY(0deg);
+        margin-top: -10%;
+        margin-bottom: 3em;
+        
+    }
+    .pc-icon-container{
+        background: white;
+        width: 20em;
+        margin-bottom: 5em;
+        margin-right: 7em;
+        padding-bottom: 2em;
+        border-radius: 30px;
+        height: 28em;
+        border: 2px solid black;
+    }
+    .pc-icon-container .pc-icon{
+        width: 40% ;
+        }
+    .report-icon-container{
+        
+        background: white;
+        width: 20em;
+        margin-bottom: 5em;
+        margin-right: 7em;
+        padding-bottom: 2em;
+        border-radius: 30px;
+        height: 28em;
+        border: 2px solid black;
+    }
+    .report-icon-container .report-icon{
+    width: 60%;
+    }
+    .caution-icon-container{
+        
+        padding-top: 3em;
+        background: white;
+        width: 20em;
+        padding-bottom: 2em;
+        margin-bottom: 5em;
+        border-radius: 30px;
+        height: 25em;
+        border: 2px solid black;
+    }
+    .caution-icon-container .caution-icon{
+        width: 40%;
+    }
+    .ctabttn{
+        transform: skewY(0deg); 
+        text-align: center;
+        margin-bottom: 50px;
+        margin-left: 35em; 
+        margin-top: -10em;
+        height: 45px;
+        width: 200px;
+        padding-top: 22px;
+        padding-bottom: -25px;
+        font-size: 1.3em;
+        
+    }
+    .orange-container h2{
+        transform: skewY(0deg);
+        text-align: left;
+        margin-left: 270px;
+        margin-top: 0;
+        
+        font-size: 1.7em;
+        position: absolute;
+        
+    }
+    .pargcontainer{
+        font-size: 110%;
+    }
+    .cautiontext{
+        font-size: 110%;
+    }
+    nav ul{
+        width: 40%;
+    }
+    .logo {
+    margin-left: 70px;
+    width: 125px;
+
+    }
+    .container-head{
+        width: 98%;
+    }
+    .show-desktop{
+        display: block;
+        margin: 0 auto 13% auto;
+    }
+    .hide-desktop{
+        display: none;
+    }
+    nav ul{
+        position: inherit;
+        width: auto;
+        background: none;
+        height: auto;
+        display: flex;
+        padding-top: 0;
+    }
+    nav ul li{
+        float: left;
+        padding-top: 1.2em;
+        font-size: 100%;
+        position: static;
+       }
+    nav ul li a{
+        color :white;
+        background-color: inherit;
+        text-align: right;
+        padding : 1em 2em;
+    }
+    nav ul li a:hover {
+        color: rgb(116, 116, 116);
+        background-color:inherit;
+    }
+    .ccbutton{
+        background: #3b3b3b;
+    
+        border-radius: 45px;
+        font-weight: 700;
+        text-align: center;
+        transform: skewY(0deg);
+        padding-top: 18px;
+        padding-bottom: 3px;
+        height: 47px;
+        width: 250px;
+        border-radius: 45px;
+        display: inline-block;
+        font-size: 150%;
+        margin-left: 9em;
+        margin-top: 0em;
+        position: absolute;
+
+    }
+}
+@media only screen and (min-width: 1024){
+  
+}

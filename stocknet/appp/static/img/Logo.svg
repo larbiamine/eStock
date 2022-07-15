@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="155.812" height="45.598" viewBox="0 0 155.812 45.598">
+  <g id="Logo" transform="translate(-141 -95.752)">
+    <text id="StonckNet" transform="translate(141 134.351)" fill="rgba(255,255,255,0.89)" font-size="29" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" opacity="0.93"><tspan x="0" y="0">StockNet</tspan></text>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="6.01" height="29.354" rx="3.005" transform="translate(271.976 106.426)" fill="rgba(0,108,164,0.59)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="6.01" height="34.691" rx="3.005" transform="translate(281.389 101.089)" fill="rgba(0,164,98,0.59)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="6.01" height="40.028" rx="3.005" transform="translate(290.803 95.752)" fill="rgba(0,108,164,0.59)"/>
+  </g>
+</svg>

@@ -1,0 +1,119 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block productactive %} active {% endblock %}
+{% block content %}
+
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('selectedlist');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+<div class="container-fluid">
+                    <div class="section">
+                        <div class="table-responsive table-full-width">
+
+                            {% for message in messages %} 
+                                 
+                                <div class="alert alert-success col-md-2 " role="alert">
+                                {{message}}
+                                </div>            
+                            
+                            {% endfor %}
+                            <div class="row">
+                                <div class="col-md-10" >
+                                    <h2 class="font-weight-normal" >Liste Des Produits</h2>
+
+                                </div>
+                                <div class="col-md-2" >
+                                    <a class="btn btn-success btn-bg mt-5" href="/product_create">
+                                        Ajouter Produit 
+                                    </a>
+
+                                </div>
+                                <div class="col-md-2" >
+                                
+                            
+                                </div>
+                            </div>
+                            
+
+
+
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th><input type="checkbox" onClick="toggle(this)" /><br/></th>
+                                    <th>Titre</th>
+                                    <th>Prix d'achat </th>
+                                    <th>Prix de vente</th>
+                                    <th>Reference</th>
+                                    <th>Fabricant</th>
+                                    <th>Fournisseurs </th>
+                                    <th>Categorie</th>
+                                    <th>Quantité</th>
+                                    <th>Supprimer</th>
+                                    <th>Modifier</th>
+
+                                </thead>
+                                <tbody>
+                                
+                                <form  method="POST"> {% csrf_token %} 
+                                {% for entry in user.productlist.all %}
+                                    <tr>
+                                        <td>                                         
+                                                <input type="checkbox" id="selectedlist" name="selectedlist" value="{{entry.id}}">
+                                                <label  for="selectedlist">  </label><br>                                             
+                                        </td>
+
+
+                                        <td>{{ entry.Title }}   </td>
+                                        <td>{{ entry.PurchasePrice }}</td>
+                                        <td>{{ entry.SalesPrice }}</td>
+                                        <td>{{ entry.Reference }}</td>
+                                        <td>{{ entry.Manufacturer }}</td>
+                                        <td>
+                                            {% for s in entry.Suppliers.all %}    
+                                                {{ s.Name }}
+                                            {% endfor %}
+                                        </td>
+                                        <td>{{ entry.Category }}</td>
+                                        
+                                        {% if entry.Quantity < 0 %}
+                                            <td class=" text-danger " > {{ entry.Quantity }}</td>
+                                        {% endif %}
+                                        {% if entry.Quantity > 0 %}
+                                            <td class=" text-success " > {{ entry.Quantity }}</td>
+                                        {% endif %}
+                                        {% if entry.Quantity == 0 %}
+                                            <td class=" text-warning " > 0</td>
+                                        {% endif %}
+                                        {% comment %} <td><a href="/product/{{ entry.id }}/delete" class=" btn btn-danger" title="Delete" > Supprimer <a/></td> {% endcomment %}
+                                        <td><a href="/product/{{ entry.id }}/delete" class=" btn btn-danger" title="Delete" > Supprimer <a/></td>
+                                        <td><a class=" text-warning btn btn-warning "  href="/product/{{ entry.id }}/edit">  Modifier</a></td>
+                                    </tr>
+                                    
+                                {% endfor %}
+                                <button type="submit" name="del" value="del" class="btn btn-danger  "><i class="fa-lg fa fa-trash"></i>  </button> 
+                                </form>
+                                </tbody>
+                            </table>
+                            <form method="POST">{% csrf_token %}
+                                <button type="submit" name="xls" value="xls" class="btn btn-info" >EXCEL</button>
+                                <button type="submit" name="pdf" value="pdf" class="btn btn-info" >PDF Impression</button>
+                            </form>
+                         
+                        </div>
+
+  
+                    </div>
+                </div>
+              {% comment %} {% include 'delete_confirmation.html' %} {% endcomment %}
+
+
+
+{% endblock %}
+
+

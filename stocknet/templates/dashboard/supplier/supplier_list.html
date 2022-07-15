@@ -1,0 +1,79 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block activesupplier %} active {% endblock %}
+{% block content %}
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('selectedlist');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+                <div class="container-fluid">
+                    <div class="section">
+                        <div class="table-responsive table-full-width">
+                            {% for message in messages %}  
+                            <div class="alert alert-success col-md-2 " role="alert">
+                            {{message}}
+                            </div>            
+                            {% endfor %}  
+                            <div class="row">
+                                <div class="col-md-10" >
+                                    <h2 class="font-weight-normal" >Liste Des Fournisseurs</h2>
+
+                                </div>
+                                <div class="col-md-2" >
+                                    <a class="btn  btn-bg mt-4 btn-success" href="/supplier_create">
+                                        Ajouter Fournisseur
+                                    </a>
+                                </div>
+                            </div>                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th><input type="checkbox" onClick="toggle(this)" /><br/></th>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Reference</th>
+                                    <th>Category</th>
+                                    <th>Adress</th>
+                                    <th>Note</th>
+                                    <th>Supprimer</th>
+                                    <th>Modifier</th>                                    
+                                </thead>
+                                <tbody>
+                                <form  method="POST"> {% csrf_token %}
+                                {% for entry in user.supplierlist.all %}
+                                    <tr>
+                                        <td>                                         
+                                            <input type="checkbox" id="selectedlist" name="selectedlist" value="{{entry.id}}">
+                                            <label  for="selectedlist">  </label><br>                                             
+                                        
+                                        </td>
+                                        <td>{{ entry.Type }}</td>
+                                        <td>{{ entry.Name }}</td>
+                                        <td>{{ entry.Phone }}</td>
+                                        <td>{{ entry.Reference }}</td>
+                                        <td>{{ entry.Category }}</td>
+                                        <td>{{ entry.Adress }}</td>
+                                        <td>{{ entry.Note }}</td>
+                                        <td><a class=" text-danger btn btn-danger "  href="/supplier/{{ entry.id }}/delete">  Supprimer</a></td>
+                                        <td><a class=" text-warning btn btn-warning "  href="/supplier/{{ entry.id }}/edit">  Modifier</a></td>
+                                        
+
+                                    </tr>
+                                {% endfor %} 
+                                <button type="submit" name="del" value="del" class="btn btn-danger  "><i class="fa-lg fa fa-trash"></i></button> 
+                                </form>     
+                                </tbody>
+                            </table>
+                            <form method="POST">{% csrf_token %}
+                                <button type="submit" name="xls" value="xls" class="btn btn-info" >EXCEL</button>
+                                <button type="submit" name="pdf" value="pdf" class="btn btn-info" >PDF Impression</button>
+                            </form>
+                        
+                        </div>                       
+
+                    </div>
+                </div>
+{% endblock %}

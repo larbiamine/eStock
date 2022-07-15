@@ -1,0 +1,84 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block deactive %}  {% endblock %}
+{% block activeclient %} active {% endblock %}
+
+
+{% block content %}
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('selectedlist');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+<div class="container-fluid">
+                    <div class="section">
+
+                        <div class="table-responsive table-full-width">
+                            {% for message in messages %}  
+                            <div class="alert alert-success col-md-2 " role="alert">
+                            {{message}}
+                            </div>            
+                            
+                            {% endfor %} 
+                            <div class="row">
+                                <div class="col-md-10" >
+                                    <h2 class="font-weight-normal" >Liste Des Clients</h2>
+
+                                </div>
+                                <div class="col-md-2" >
+                                    <a class="btn btn-success btn-bg mt-4" href="/client_create">
+                                        Ajouter Client
+                                    </a>
+                                </div>
+                            </div> 
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th><input type="checkbox" onClick="toggle(this)" /><br/></th>
+                                    <th>Type</th>
+                                    <th>Nom</th>
+                                    <th>Telephone</th>
+                                    <th>Email</th>
+                                    <th>Référence</th>
+                                    <th>Adresse</th>
+                                    <th>Note</th>
+                                    <th>Supprimer</th>
+                                    <th>Modifier</th>
+                                    
+                                </thead>
+                                <tbody>
+                                <form  method="POST"> {% csrf_token %}
+                                {% for entry in user.clientlist.all %}
+                                    <tr>
+                                        <td>                                         
+                                            <input type="checkbox" id="selectedlist" name="selectedlist" value="{{entry.id}}">
+                                            <label  for="selectedlist">  </label><br>                                             
+                                        </td>
+                                        
+                                        <td>{{ entry.Type }}</td>
+                                        <td>{{ entry.Name }}</td>
+                                        <td>{{ entry.Phone }}</td>
+                                        <td>{{ entry.Email }}</td>
+                                        <td>{{ entry.Reference }}</td>
+                                        <td>{{ entry.Adress }}</td>
+                                        <td>{{ entry.Note }}</td>
+                                        <td><a class=" text-danger btn btn-danger"  href="/client/{{ entry.id }}/delete">  Supprimer</a></td>
+                                        <td><a class=" text-warning btn btn-warning "  href="/client/{{ entry.id }}/edit">  Modifier</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                                <button type="submit" name="del" value="del" class="btn btn-danger  "><i class="fa-lg fa fa-trash"></i></button> 
+                                </form>     
+                                </tbody>
+                            </table>
+                            <form method="POST">{% csrf_token %}
+                                <button type="submit" name="xls" value="xls" class="btn btn-info" >EXCEL</button>
+                                <button type="submit" name="pdf" value="pdf" class="btn btn-info" >PDF Impression</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            {% endblock %}    

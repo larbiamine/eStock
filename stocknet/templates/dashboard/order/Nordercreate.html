@@ -1,0 +1,45 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block activeorder %} active {% endblock %}
+{% load static %}
+{% block content %}
+<script src="{% static 'jquery/myjs.js' %}"></script>
+
+<div class="container-fluid">
+    <div class="section">
+    
+    <div class="col-8">
+    <div class="row">
+            <p>
+                <button type="button" class="btn btn-primary js-create-order">
+                <span class="glyphicon glyphicon-plus"></span>
+                New Order
+                </button>
+            </p>
+            <table class="table" id="book-table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+
+            </tr>
+            </thead>
+                <tbody>
+                    {% include 'dashboard/order/partial_order_list.html' %}
+                </tbody>
+            </table>
+
+    </div>
+    <div class="modal fade" id="modal-order">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+    
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}    

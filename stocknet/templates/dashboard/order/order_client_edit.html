@@ -1,0 +1,72 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block activeorder %} active {% endblock %}
+{% load i18n %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">
+    <div class="section">
+       <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="font-weight-normal ml-1 mx-auto" >  Modifier une commande client  </h3><br> 
+                </div>
+                <div class="card-body mr-3 ">
+                    <form  method="POST"> {% csrf_token %}
+                            <div class="col-md-12  ">
+                                <div class="form-group">
+                                    <label>Etat</label>
+                                    <select class="custom-select" id="status" name="status">
+                                        {% if obj.Status == "en attente" %}
+                                        <option selected value="en attente">en attente</option>
+                                        <option value="en attente">livré</option>
+                                        {% else %}
+                                        <option selected value="livré">livré</option>
+                                        <option  value="en attente">en attente</option>
+                                        {% endif %}    
+                                    </select>     
+                                </div>
+                            </div>
+
+                            
+                        {{form|crispy}}
+                        <hr>
+                        {{ formset.management_form  }}
+                        {% for f in formset %}
+                        <div class="row">
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    
+                                    {{f.Product|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    
+                                    {{f.Quantity|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                            
+                            
+                            <hr>
+                        {% endfor %}
+                        
+                        {% for message in messages %}              
+                        <h6 class="text-danger small">{{message}}</h6>
+                        {% endfor %} 
+
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Modifier Commande </button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}    

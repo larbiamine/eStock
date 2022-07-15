@@ -1,0 +1,79 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block accountactive %} active {% endblock %}
+{% block content %}
+
+
+<div class="container-fluid">
+                    <div class="section">
+
+
+                            
+
+
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Mon Compte</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form  method="POST"> {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Nom Utilisateur </label>
+                                                    <input type="text" name="username" class="form-control" placeholder="Username" value="{{ user.username }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" disabled="" name="email" class="form-control" placeholder="Email" value="{{user.email}}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Prenom</label>
+                                                    <input type="text" name="first_name" class="form-control" placeholder="First Name" value="{{user.first_name.capitalize}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label>Nom</label>
+                                                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="{{user.last_name.upper}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Mot de pass </label>
+                                                    <input type="password" name="password1" class="form-control" placeholder="Mot de pass" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label>confirmer mot de pass</label>
+                                                    <input type="password" name="password2" class="form-control" placeholder="password" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                            {% for message in messages %}  
+                            <div class="alert alert-danger col-md-6 " role="alert">
+                            {{message}}
+                            </div>            
+                            {% endfor %} 
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Mettre a jour Profile </button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

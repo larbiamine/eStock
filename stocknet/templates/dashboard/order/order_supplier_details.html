@@ -1,0 +1,67 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block deactive %}  {% endblock %}
+{% block activeorder %} active {% endblock %}
+{% load i18n %}
+{% block content %}
+<div class="container-fluid">
+    <div class="section">
+       <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="font-weight-normal ml-1 mx-auto" >  Details commande de {{obj.Supplier}} </h3><br> 
+                </div>
+                <div class="card-body mr-3 ">
+                    <p> Fournisseur : {{obj.Supplier}} </p>
+                    <p> Date :{% language 'fr' %}  {{obj.Date}} {% endlanguage %} </p>
+                    <p> Etat : {{obj.Status}} </p>
+
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <th>Produit</th>
+                            <th>Prix de vente</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                    
+                            
+                        </thead>
+                        <tbody>
+                        
+                        {% for o in obj.norderslist.all %}
+                            <tr>
+
+                                <td>{{o.Product}}</td>
+                                <td>{{o.Product.PurchasePrice}}</td>
+                                <td>{{o.Quantity}}</td>
+                                <td>{{ o.line_total  }}</td>
+
+                            </tr>
+                        {% endfor %}
+                        <tr>
+
+                            <td> </td>
+                            <td> </td>
+                            <td><b> Grand Total</b> </td>
+                            <td><b>{{ obj.Total  }}</b></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                    <form method="POST">{% csrf_token %}
+                        <button type="submit" name="xls" value="xls" class="btn btn-info" >EXCEL</button>
+                        <button type="submit" name="pdf" value="pdf" class="btn btn-info" >PDF Impression</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock %}  
