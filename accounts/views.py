@@ -4,7 +4,6 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 # Create your views here.
 def register(request):
-
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -44,7 +43,7 @@ def login(request):
             print('user logged in')
             return redirect('/dashboard')
         else:
-            messages.info(request,'user doesnt exist')
+            messages.info(request,'Utilisateur n\'existe pas')
             return redirect('login')
     else:
         return render(request,'login.html')
