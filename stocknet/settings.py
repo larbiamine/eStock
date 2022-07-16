@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'stocknet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "PS",
-        'USER': 'postgres',
-        'PASSWORD' : 'postgres',
-        'HOST' : 'localhost'
+        'NAME': "d86pthq5mum6g1",
+        'USER': 'kselzetvclfepg',
+        'PASSWORD' : 'b8e4dd7eb3dcf0436a3975f26397a6d5b249f0ea842bddc7b1b9775a9e84fd4c',
+        'HOST' : 'ec2-54-75-184-144.eu-west-1.compute.amazonaws.com'
     }
 }
 
