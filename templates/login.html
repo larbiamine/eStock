@@ -29,7 +29,17 @@
         <a class="navbar-brand" href="/">
           <img src="{% static 'img/Logo.svg'%}" alt="logo" class="d-inline-block align-top logo" >
         </a>
-        
+        {% get_current_language as CURRENT_LANGUAGE %}
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+        {% for language in languages %}
+          <li class="nav-item">
+            <a href="/{{ language.code }}/"
+              {% if language.code == CURRENT_LANGUAGE %} class="text-light active hide d-none" {% else %} class="text-light active" {% endif %}>
+              {{ language.name_local }} 
+            </a>
+          </li>
+        {% endfor %}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
         </button>
