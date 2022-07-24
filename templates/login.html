@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <style>
   .bgimage {
     
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
     
     
-    <title>StockNet</title>
+    <title>eStock</title>
   </head>
   <body >
 
@@ -35,31 +36,31 @@
 
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link text-white mr-auto leftmarg" >Bonjour,  {{user.last_name.upper}}</a>
+          <a class="nav-item nav-link text-white mr-auto leftmarg" >{% trans "Bonjour," %}   {{user.last_name.upper}}</a>
           {% endif  %}         
           <ul class="navbar-nav ml-auto ">
 
             <li class="nav-item">
-                <a class="nav-link text-light " href="/">Acceuil</a>
+                <a class="nav-link text-light " href="/">{% trans "Acceuil" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="/about/">A propos</a>
+                <a class="nav-link text-light" href="/about/">{% trans "A propos" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="/services/">Services</a>
+                <a class="nav-link text-light" href="/services/">{% trans "Services" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light " href="/contact/">Contact</a>
+                <a class="nav-link text-light " href="/contact/">{% trans "Contact" %}</a>
             </li>
 
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="   mybutton " href="/accounts/logout" role="button">Deconnection</a>
+              <a class="   mybutton " href="/accounts/logout" role="button">{% trans "Deconnexion" %}</a>
                 
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="   mybutton " href="/accounts/login" role="button">Connection</a>
+                <a class="   mybutton " href="/accounts/login" role="button">{% trans "Connexion" %}</a>
             </li>
             {% endif %}
 
@@ -86,12 +87,12 @@
 
 
                   <div class="form-style-8">
-                <h2>Se connecter</h2>
+                <h2>{% trans "Se connecter" %}</h2>
             <form action="login" method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Nom d'utilisateur""><br>
-            <input type="password" name="password" placeholder="Mot de pass""><br>
-            <input type="Submit" value="Connexion" >
+            <input type="text" name="username" placeholder =  "{% trans "Nom d'utilisateur" %}"><br>
+            <input type="password" name="password" placeholder= "{% trans "Mot de passe" %}"><br>
+            <input type="Submit" value="{% trans "Connexion" %}" >
         </form>
         <div>
             {% for message in messages %}
@@ -144,10 +145,10 @@
 
         <ul class="footer-links col-md-3 mb-md-0 mb-3">
           <li>
-            <a href="#!">Conditions de Services</a>
+            <a href="#!">{% trans "Conditions de Services" %}</a>
           </li>
           <li>
-            <a href="#!">Politique de confidentialité</a>
+            <a href="#!">{% trans "Politique de confidentialité" %}</a>
           </li>
         </ul>
 

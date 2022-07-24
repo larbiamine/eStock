@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'neworders',
     'wkhtmltopdf',
+    'rosetta',
 ]
 WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
@@ -58,6 +59,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,6 +67,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale/')
+]
+
 
 ROOT_URLCONF = 'stocknet.urls'
 
@@ -123,7 +130,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
+
+
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 

@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-16 22:25+0100\n"
+"PO-Revision-Date: 2022-07-16 21:53+0000\n"
+"Last-Translator: Jay LIAM <Jay@estock.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\accounts\views.py:18
+msgid "nom d utilisateur exist deja"
+msgstr "nom d utilisateur exist deja"
+
+#: .\accounts\views.py:21
+msgid "Email deja pris"
+msgstr "Email deja pris"
+
+#: .\accounts\views.py:29
+msgid "les mots de passe ne correspondent pas"
+msgstr "les mots de passe ne correspondent pas"
+
+#: .\accounts\views.py:47
+msgid "Utilisateur n'existe pas"
+msgstr "Utilisateur n'existe pas"
+
+#: .\crispy_forms\tests\test_form_helper.py:129
+#: .\crispy_forms\tests\test_form_helper.py:139
+msgid "This field is required."
+msgstr "Ce champ est requis"
+
+#: .\crispy_forms\tests\test_layout.py:360
+msgid "i18n text"
+msgstr "i18n text"
+
+#: .\crispy_forms\tests\test_layout.py:360
+msgid "i18n legend"
+msgstr "i18n legend"
+
+#: .\crispy_forms\tests\test_layout_objects.py:129
+msgid "Enter a valid value."
+msgstr "Entrez une valeur valide"
+
+#: .\stocknet\settings.py:136
+msgid "English"
+msgstr "Anglais"
+
+#: .\stocknet\settings.py:137
+msgid "French"
+msgstr "Français"
+
+#: .\templates\login.html:39
+msgid "Bonjour,"
+msgstr "Bonjour,"
+
+#: .\templates\login.html:44
+msgid "Acceuil"
+msgstr "Acceuil"
+
+#: .\templates\login.html:47
+msgid "A propos"
+msgstr "A propos"
+
+#: .\templates\login.html:50
+msgid "Services"
+msgstr "Services"
+
+#: .\templates\login.html:53
+msgid "Contact"
+msgstr "Contact"
+
+#: .\templates\login.html:58
+msgid "Deconnexion"
+msgstr "Deconnexion"
+
+#: .\templates\login.html:63
+msgid "Connexion"
+msgstr "Connexion"
+
+#: .\templates\login.html:90
+msgid "Se connecter"
+msgstr "Se connecter"
+
+#: .\templates\login.html:93
+#, fuzzy
+#| msgid "nom d utilisateur exist deja"
+msgid "Nom d'utilisateur"
+msgstr "nom d utilisateur exist deja"
+
+#: .\templates\login.html:94
+#, fuzzy
+#| msgid "Mot de pass"
+msgid "Mot de passe"
+msgstr "Mot de pass"
+
+#: .\templates\login.html:148
+msgid "Conditions de Services"
+msgstr "Conditions de Services"
+
+#: .\templates\login.html:151
+msgid "Politique de confidentialité"
+msgstr "Politique de confidentialité"

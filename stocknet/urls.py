@@ -14,18 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.urls import path
 from django.urls import path,include
 from products.views import productView,productCreateView
-urlpatterns = [
+urlpatterns = i18n_patterns(
+    path('rosetta/', include('rosetta.urls')),
     path('',include('appp.urls')), # home contact about learnmore and services pages all in there
     path('',include('neworders.urls')), # home contact about learnmore and services pages all in there
     path('admin/', admin.site.urls),
+      # NEW
     path('accounts/',include('accounts.urls')),# login register (contact related) pages 
     path('product/',productView),
     path('createproduct/',productCreateView),
     path('bootstrap/',TemplateView.as_view(template_name='bootstrap/example.html'))
     
-]
+)

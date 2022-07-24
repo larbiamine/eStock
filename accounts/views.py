@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -14,10 +15,10 @@ def register(request):
         if(password1 == password2):
             if(User.objects.filter(username=username).exists()):
                 print('nom d utilisateur exist deja')
-                messages.info(request,'nom d utilisateur exist deja')
+                messages.info(request,_('nom d utilisateur exist deja'))
             elif User.objects.filter(email=email).exists(): 
                 print('email taken')
-                messages.info(request,'email taken')
+                messages.info(request,_('Email deja pris'))
             else:    
                 user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
                 user.save()
@@ -25,7 +26,7 @@ def register(request):
                 return redirect('login')   
         else:
             print('les mots de passe ne correspondent pas')
-            messages.info(request,'les mots de passe ne correspondent pas')
+            messages.info(request,_('les mots de passe ne correspondent pas'))
         return redirect('register')
     else:
         return render(request,'register.html')
@@ -43,7 +44,7 @@ def login(request):
             print('user logged in')
             return redirect('/dashboard')
         else:
-            messages.info(request,'Utilisateur n\'existe pas')
+            messages.info(request,_('Utilisateur n\'existe pas'))
             return redirect('login')
     else:
         return render(request,'login.html')

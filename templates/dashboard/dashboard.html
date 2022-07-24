@@ -15,11 +15,13 @@
      <!-- CSS Files --> {% endcomment %}
     
     <link href="{% static '/assets/css/demo.css'%}" rel="stylesheet" />
+    
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}"> 
     <link rel="stylesheet" href="{% static 'assets/css/light-bootstrap-dashboard.css'%}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css'%}" >
     <link rel="stylesheet" href="{% static 'chart.js/dist/Chart.css'%}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'chart.js/dist/Chart.min.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css'%}"> 
 </head>
 
 
@@ -112,7 +114,13 @@
 
             <nav class="navbar navbar-expand-lg " id="navvbar" color-on-scroll="500">
                 <div class="container-fluid" >
+                        <!-- <div class="navbar-brand custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="lightSwitch">
+                            <label class="custom-control-label" for="lightSwitch"><i class="nc-icon nc-planet"></i></label>
+                        </div> -->
                     <p class="navbar-brand" >{{user.first_name.capitalize}} {{user.last_name.upper}}  </p>
+                    <!-- <input class="form-check-input" type="checkbox" id="lightSwitch" /> -->
+
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -151,7 +159,6 @@
                         </ul>
                         <ul class="navbar-nav ml-auto">
    
-
                             <li class="nav-item">
                                 <a class="nav-link" href="/accounts/logout">
                                     <span class="no-icon">Deconnexion</span>
@@ -159,12 +166,13 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                 </div>
                 {% load i18n %}
                     {% language 'fr' %} 
                     <p class="navbar-brand text-center " >    Date : {{ today }}    </p>                   
                     {% endlanguage %} 
+
             </nav>
             <!-- End Navbar -->
             <div class="content">
@@ -384,6 +392,121 @@
 <script src="{% static 'assets/js/light-bootstrap-dashboard.js'%}" type="text/javascript"></script>
 <script src="{% static 'assets/js/iconify.min.js'%}" type="text/javascript"></script>
 
+<script>
+    /**
+ *  Light Switch @version v0.1.4
+ */
 
+(function () {
+  let lightSwitch = document.getElementById('lightSwitch');
+  if (!lightSwitch) {
+    return;
+  }
+
+  /**
+   * @function darkmode
+   * @summary: changes the theme to 'dark mode' and save settings to local stroage.
+   * Basically, replaces/toggles every CSS class that has '-light' class with '-dark'
+   */
+  function darkMode() {
+    document.querySelectorAll('.bg-light').forEach((element) => {
+      element.className = element.className.replace(/-light/g, '-dark');
+    });
+
+    document.body.classList.add('bg-dark');
+
+    if (document.body.classList.contains('text-dark')) {
+      document.body.classList.replace('text-dark', 'text-light');
+    } else {
+      document.body.classList.add('text-light');
+    }
+
+    // Tables
+    var tables = document.querySelectorAll('table');
+    for (var i = 0; i < tables.length; i++) {
+      // add table-dark class to each table
+      tables[i].classList.add('table-dark');
+    }
+
+    // set light switch input to true
+    if (!lightSwitch.checked) {
+      lightSwitch.checked = true;
+    }
+    localStorage.setItem('lightSwitch', 'dark');
+  }
+
+  /**
+   * @function lightmode
+   * @summary: changes the theme to 'light mode' and save settings to local stroage.
+   */
+  function lightMode() {
+    document.querySelectorAll('.bg-dark').forEach((element) => {
+      element.className = element.className.replace(/-dark/g, '-light');
+    });
+
+    document.body.classList.add('bg-light');
+
+    if (document.body.classList.contains('text-light')) {
+      document.body.classList.replace('text-light', 'text-dark');
+    } else {
+      document.body.classList.add('text-dark');
+    }
+
+    // Tables
+    var tables = document.querySelectorAll('table');
+    for (var i = 0; i < tables.length; i++) {
+      if (tables[i].classList.contains('table-dark')) {
+        tables[i].classList.remove('table-dark');
+      }
+    }
+
+    if (lightSwitch.checked) {
+      lightSwitch.checked = false;
+    }
+    localStorage.setItem('lightSwitch', 'light');
+  }
+
+  /**
+   * @function onToggleMode
+   * @summary: the event handler attached to the switch. calling @darkMode or @lightMode depending on the checked state.
+   */
+  function onToggleMode() {
+    if (lightSwitch.checked) {
+      darkMode();
+    } else {
+      lightMode();
+    }
+  }
+
+  /**
+   * @function getSystemDefaultTheme
+   * @summary: get system default theme by media query
+   */
+  function getSystemDefaultTheme() {
+    const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (darkThemeMq.matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  function setup() {
+    var settings = localStorage.getItem('lightSwitch');
+    if (settings == null) {
+      settings = getSystemDefaultTheme();
+    }
+
+    if (settings == 'dark') {
+      lightSwitch.checked = true;
+    }
+
+    lightSwitch.addEventListener('change', onToggleMode);
+    onToggleMode();
+  }
+
+  setup();
+})();
+
+</script>
 
 </html>
