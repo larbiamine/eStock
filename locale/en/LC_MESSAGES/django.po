@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-16 22:25+0100\n"
-"PO-Revision-Date: 2022-07-16 22:26+0000\n"
+"POT-Creation-Date: 2022-07-24 22:57+0100\n"
+"PO-Revision-Date: 2022-07-24 22:58+0000\n"
 "Last-Translator: Jay LIAM <Jay@estock.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -62,33 +62,97 @@ msgstr "English"
 msgid "French"
 msgstr "French"
 
-#: .\templates\login.html:39
-msgid "Bonjour,"
-msgstr "Hello,"
-
-#: .\templates\login.html:44
+#: .\templates\index.html:45 .\templates\login.html:44
 msgid "Acceuil"
 msgstr "Home"
 
-#: .\templates\login.html:47
+#: .\templates\index.html:48 .\templates\login.html:47
 msgid "A propos"
 msgstr "About"
 
-#: .\templates\login.html:50
+#: .\templates\index.html:51 .\templates\login.html:50
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\login.html:53
+#: .\templates\index.html:54 .\templates\login.html:53
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\login.html:58
+#: .\templates\index.html:60
+msgid "Tableau de Bord"
+msgstr "Dashboard"
+
+#: .\templates\index.html:63 .\templates\login.html:58
 msgid "Deconnexion"
 msgstr "Log Out"
 
-#: .\templates\login.html:63
+#: .\templates\index.html:69 .\templates\login.html:63
+#: .\templates\login.html:95
 msgid "Connexion"
 msgstr "Login"
+
+#: .\templates\index.html:80
+msgid "Gestion des stocks en ligne simple et efficace."
+msgstr "Simple and efficient online inventory management."
+
+#: .\templates\index.html:83
+msgid "Apprendre Plus"
+msgstr "Apprendre Plus"
+
+#: .\templates\index.html:95
+msgid "L’efficacité aux commandes"
+msgstr "Efficiency at the controls"
+
+#: .\templates\index.html:96
+msgid ""
+"Passez moins de temps devant l’écran et davantage auprès de vos clients."
+msgstr "Spend less time in front of the screen and more with your customers."
+
+#: .\templates\index.html:103
+msgid "Gestion des stocks en lot"
+msgstr "Batch inventory management"
+
+#: .\templates\index.html:104
+msgid ""
+"Consulter vos rapports sur vos stocks actuels et mettez à jour les quantités"
+" en masse : pratique au moment d’ajouter de nouveaux stocks!"
+msgstr ""
+"Consult your reports on your current stocks and update quantities in bulk: "
+"handy when adding new stocks!"
+
+#: .\templates\index.html:111
+msgid "Évitez les ruptures de stock"
+msgstr "Avoid stockouts"
+
+#: .\templates\index.html:112
+msgid "sachez toujours où"
+msgstr "always know where you are,"
+
+#: .\templates\index.html:112
+msgid ""
+"vous en êtes, avec les notifications indiquant les stocks réduits ou "
+"épuisés."
+msgstr "with notifications indicating low or sold out stocks."
+
+#: .\templates\index.html:118
+msgid "Creér Votre Compte"
+msgstr "Create an account"
+
+#: .\templates\index.html:118
+msgid "Dès Maintenant!"
+msgstr "Now!"
+
+#: .\templates\index.html:120
+msgid "Créer Compte"
+msgstr "Sign up"
+
+#: .\templates\index.html:169 .\templates\login.html:148
+msgid "Conditions de Services"
+msgstr "Terms of Service"
+
+#: .\templates\index.html:172 .\templates\login.html:151
+msgid "Politique de confidentialité"
+msgstr "Privacy Policy"
 
 #: .\templates\login.html:90
 msgid "Se connecter"
@@ -99,14 +163,8 @@ msgid "Nom d'utilisateur"
 msgstr "Username"
 
 #: .\templates\login.html:94
-#| msgid "Mot de pass"
 msgid "Mot de passe"
 msgstr "Password"
 
-#: .\templates\login.html:148
-msgid "Conditions de Services"
-msgstr "Terms of Service"
-
-#: .\templates\login.html:151
-msgid "Politique de confidentialité"
-msgstr "Privacy Policy"
+#~ msgid "Bonjour,"
+#~ msgstr "Hello,"

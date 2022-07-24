@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-16 22:25+0100\n"
-"PO-Revision-Date: 2022-07-16 21:53+0000\n"
+"POT-Creation-Date: 2022-07-24 22:57+0100\n"
+"PO-Revision-Date: 2022-07-24 22:54+0000\n"
 "Last-Translator: Jay LIAM <Jay@estock.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: .\accounts\views.py:18
 msgid "nom d utilisateur exist deja"
-msgstr "nom d utilisateur exist deja"
+msgstr "nom d'utilisateur exist deja"
 
 #: .\accounts\views.py:21
 msgid "Email deja pris"
@@ -60,54 +60,110 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
-#: .\templates\login.html:39
-msgid "Bonjour,"
-msgstr "Bonjour,"
-
-#: .\templates\login.html:44
+#: .\templates\index.html:45 .\templates\login.html:44
 msgid "Acceuil"
 msgstr "Acceuil"
 
-#: .\templates\login.html:47
+#: .\templates\index.html:48 .\templates\login.html:47
 msgid "A propos"
 msgstr "A propos"
 
-#: .\templates\login.html:50
+#: .\templates\index.html:51 .\templates\login.html:50
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\login.html:53
+#: .\templates\index.html:54 .\templates\login.html:53
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\login.html:58
+#: .\templates\index.html:60
+msgid "Tableau de Bord"
+msgstr "Tableau de Bord"
+
+#: .\templates\index.html:63 .\templates\login.html:58
 msgid "Deconnexion"
 msgstr "Deconnexion"
 
-#: .\templates\login.html:63
+#: .\templates\index.html:69 .\templates\login.html:63
+#: .\templates\login.html:95
 msgid "Connexion"
 msgstr "Connexion"
+
+#: .\templates\index.html:80
+msgid "Gestion des stocks en ligne simple et efficace."
+msgstr "Gestion des stocks en ligne simple et efficace."
+
+#: .\templates\index.html:83
+msgid "Apprendre Plus"
+msgstr "Apprendre Plus"
+
+#: .\templates\index.html:95
+msgid "L’efficacité aux commandes"
+msgstr "L’efficacité aux commandes"
+
+#: .\templates\index.html:96
+msgid ""
+"Passez moins de temps devant l’écran et davantage auprès de vos clients."
+msgstr ""
+"Passez moins de temps devant l’écran et davantage auprès de vos clients."
+
+#: .\templates\index.html:103
+msgid "Gestion des stocks en lot"
+msgstr "Gestion des stocks en lot"
+
+#: .\templates\index.html:104
+msgid ""
+"Consulter vos rapports sur vos stocks actuels et mettez à jour les quantités "
+"en masse : pratique au moment d’ajouter de nouveaux stocks!"
+msgstr ""
+"Consulter vos rapports sur vos stocks actuels et mettez à jour les quantités "
+"en masse : pratique au moment d’ajouter de nouveaux stocks!"
+
+#: .\templates\index.html:111
+msgid "Évitez les ruptures de stock"
+msgstr "Évitez les ruptures de stock"
+
+#: .\templates\index.html:112
+msgid "sachez toujours où"
+msgstr "sachez toujours où"
+
+#: .\templates\index.html:112
+msgid ""
+"vous en êtes, avec les notifications indiquant les stocks réduits ou épuisés."
+msgstr ""
+"vous en êtes, avec les notifications indiquant les stocks réduits ou épuisés."
+
+#: .\templates\index.html:118
+msgid "Creér Votre Compte"
+msgstr "Creér Votre Compte"
+
+#: .\templates\index.html:118
+msgid "Dès Maintenant!"
+msgstr "Dès Maintenant!"
+
+#: .\templates\index.html:120
+msgid "Créer Compte"
+msgstr "Créer Compte"
+
+#: .\templates\index.html:169 .\templates\login.html:148
+msgid "Conditions de Services"
+msgstr "Conditions de Services"
+
+#: .\templates\index.html:172 .\templates\login.html:151
+msgid "Politique de confidentialité"
+msgstr "Politique de confidentialité"
 
 #: .\templates\login.html:90
 msgid "Se connecter"
 msgstr "Se connecter"
 
 #: .\templates\login.html:93
-#, fuzzy
-#| msgid "nom d utilisateur exist deja"
 msgid "Nom d'utilisateur"
-msgstr "nom d utilisateur exist deja"
+msgstr "Nom d'utilisateur"
 
 #: .\templates\login.html:94
-#, fuzzy
-#| msgid "Mot de pass"
 msgid "Mot de passe"
-msgstr "Mot de pass"
+msgstr "Mot de passe"
 
-#: .\templates\login.html:148
-msgid "Conditions de Services"
-msgstr "Conditions de Services"
-
-#: .\templates\login.html:151
-msgid "Politique de confidentialité"
-msgstr "Politique de confidentialité"
+#~ msgid "Bonjour,"
+#~ msgstr "Bonjour,"

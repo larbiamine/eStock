@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <style>
   .bgimage {
     
@@ -35,37 +36,37 @@
         </button>
 
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          {% if user.is_authenticated %}
-          <a class="nav-item nav-link text-white mr-auto leftmarg" >Bonjour,  {{user.last_name.upper}}</a>
+          {% if user.is_authenticated %} 
+          <a class="nav-item nav-link text-white mr-auto leftmarg" >{% trans Bonjour   %},  {{user.last_name.upper}}</a>
           {% endif  %}         
           <ul class="navbar-nav ml-auto ">
 
             <li class="nav-item">
-                <a class="nav-link text-light " href="/">Acceuil</a>
+                <a class="nav-link text-light " href="/">{% trans "Acceuil" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="/about/">A propos</a>
+                <a class="nav-link text-light" href="/about/">{% trans "A propos" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="/services/">Services</a>
+                <a class="nav-link text-light" href="/services/">{% trans "Services" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light " href="/contact/">Contact</a>
+                <a class="nav-link text-light " href="/contact/">{% trans "Contact" %}</a>
             </li>
 
             {% if user.is_authenticated %}
 
             <li class="nav-item">
-              <a class=" mybutton " href="/dashboard" role="button">Tableau de Bord</a>                
+              <a class=" mybutton " href="/dashboard" role="button">{% trans "Tableau de Bord" %}</a>                
             </li>
             <li class="nav-item">
-              <a class=" mybutton " href="/accounts/logout" role="button">Deconnection</a>                
+              <a class=" mybutton " href="/accounts/logout" role="button">{% trans "Deconnexion" %}noice</a>                
             </li>
 
 
             {% else %}
             <li class="nav-item">
-                <a class="   mybutton " href="/accounts/login" role="button">Connection</a>
+                <a class="   mybutton " href="/accounts/login" role="button">{% trans "Connexion" %}</a>
             </li>
             {% endif %}
 
@@ -76,10 +77,10 @@
 
 {% block content %} 
       <div class="jumbotron bgimage  ">
-        <h1 class="d4 monts ">Gestion des stocks en ligne simple et efficace. <br><br> </h1>
+        <h1 class="d4 monts ">{% trans "Gestion des stocks en ligne simple et efficace." %} <br><br> </h1>
         
         <p class="lead center ">
-            <a class=" btn-lg mybutton2 monts" href="/learnmore/" role="button">Apprendre Plus</a>
+            <a class=" btn-lg mybutton2 monts" href="/learnmore/" role="button">{% trans "Apprendre Plus" %}</a>
         </p>
         
       </div>
@@ -91,32 +92,32 @@
           <div class="card borderr cardradius">
             <img class=" pc-icon " src="{% static 'img/website.png'%}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title center bolld">L’efficacité aux commandes</h5>
-              <p class="card-text center">Passez moins de temps devant l’écran et davantage auprès de vos clients.</p>          
+              <h5 class="card-title center bolld">{% trans "L’efficacité aux commandes" %}</h5>
+              <p class="card-text center"> {% trans "Passez moins de temps devant l’écran et davantage auprès de vos clients." %} </p>          
             </div>
           </div>
 
           <div class="card borderr cardradius">
             <img class=" report-icon " src="{% static 'img/report.png'%}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title center bolld">Gestion des stocks en lot</h5>
-                <p class="card-text center">Consulter vos rapports sur vos stocks actuels et mettez à jour les quantités en masse : pratique au moment d’ajouter de nouveaux stocks!</p>
+              <h5 class="card-title center bolld">{% trans "Gestion des stocks en lot" %} </h5>
+                <p class="card-text center">{% trans "Consulter vos rapports sur vos stocks actuels et mettez à jour les quantités en masse : pratique au moment d’ajouter de nouveaux stocks!" %}</p>
             </div>
           </div>
 
           <div class="card borderr cardradius">
             <img src="{% static 'img/caution.png'%}" class="caution-icon" alt="...">
             <div class="card-body">
-              <h5 class="card-title center bolld">Évitez les ruptures de stock</h5>
-              <p class="card-text center">sachez toujours où <br> vous en êtes, avec les notifications indiquant les stocks réduits ou épuisés.</p>          
+              <h5 class="card-title center bolld">{% trans "Évitez les ruptures de stock" %} </h5>
+              <p class="card-text center">{% trans "sachez toujours où" %} <br> {% trans "vous en êtes, avec les notifications indiquant les stocks réduits ou épuisés." %} </p>          
             </div>
           </div>
 
           
         </div>
-                        <h2 class="bolld  cctext ">Creér Votre Compte<br>Dès Maintenant!</h2> 
+                        <h2 class="bolld  cctext ">{% trans "Creér Votre Compte" %} <br>{% trans "Dès Maintenant!" %} </h2> 
         <p class="lead ccbtn ">
-            <a href="accounts/register" class="mybutton2G  " >Créer Compte</a>
+            <a href="accounts/register" class="mybutton2G  " > {% trans "Créer Compte" %} </a>
             </p>
                 
 
@@ -165,10 +166,10 @@
 
         <ul class="footer-links col-md-3 mb-md-0 mb-3">
           <li>
-            <a href="#!">Conditions de Services</a>
+            <a href="#!">{% trans "Conditions de Services" %}</a>
           </li>
           <li>
-            <a href="#!">Politique de confidentialité</a>
+            <a href="#!">{% trans "Politique de confidentialité" %}</a>
           </li>
         </ul>
 
