@@ -98,12 +98,19 @@ WSGI_APPLICATION = 'stocknet.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': "d86pthq5mum6g1",
+    #     'USER': 'kselzetvclfepg',
+    #     'PASSWORD' : 'b8e4dd7eb3dcf0436a3975f26397a6d5b249f0ea842bddc7b1b9775a9e84fd4c',
+    #     'HOST' : 'ec2-54-75-184-144.eu-west-1.compute.amazonaws.com'
+    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "d86pthq5mum6g1",
-        'USER': 'kselzetvclfepg',
-        'PASSWORD' : 'b8e4dd7eb3dcf0436a3975f26397a6d5b249f0ea842bddc7b1b9775a9e84fd4c',
-        'HOST' : 'ec2-54-75-184-144.eu-west-1.compute.amazonaws.com'
+        'NAME': "tymdqlom",
+        'USER': 'tymdqlom',
+        'PASSWORD' : 'fpuKQLYEQ67g3_MdsOKrEtDmC4JELAU-',
+        'HOST' : 'mouse.db.elephantsql.com'
     }
 }
 
