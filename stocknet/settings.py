@@ -25,7 +25,7 @@ SECRET_KEY = 'mr*rg6e5r-v#mw2%w&d^sl%v4selue!swoisl=ww#*@qdfk))r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['estocck.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['estocck.herokuapp.com','127.0.0.1','estock.onrender.com']
 
 
 # Application definition
@@ -107,10 +107,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "tymdqlom",
-        'USER': 'tymdqlom',
-        'PASSWORD' : 'fpuKQLYEQ67g3_MdsOKrEtDmC4JELAU-',
-        'HOST' : 'mouse.db.elephantsql.com'
+        'NAME': "estockdb",
+        'USER': 'estockdb',
+        'PASSWORD' : 'o7i2QxsopY4GXCcqYo5v1eUnwFY9rtpF',
+        'HOST' : 'dpg-cel15182i3molpgj1mp0-a'
     }
 }
 
