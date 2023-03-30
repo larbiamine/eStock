@@ -107,10 +107,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "estockdb",
+        'NAME': "estockdb_09k3",
         'USER': 'estockdb',
-        'PASSWORD' : 'o7i2QxsopY4GXCcqYo5v1eUnwFY9rtpF',
-        'HOST' : 'dpg-cel15182i3molpgj1mp0-a'
+        'PASSWORD' : 'oxMJBkm594F5ZFmaP7EJjgkzqVYSlKsx',
+        'HOST' : 'dpg-cgiesv7dvk4vd531fdgg-a'
     }
 }
 
